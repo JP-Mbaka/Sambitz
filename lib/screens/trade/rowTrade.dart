@@ -18,7 +18,8 @@ class RowTrade extends StatelessWidget {
       isBuying;
   final DateTime? transactionDuration;
 
-  RowTrade({
+  const RowTrade({
+    super.key,
     this.userName,
     this.ratings,
     this.modeOfPayment,

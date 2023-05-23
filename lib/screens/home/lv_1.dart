@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import '../../widgets/buy_widget.dart';
 // import 'package:sambitz/widgets/buy_widget.dart';
 
-class LV1_ls extends StatelessWidget {
+class Lv1Ls extends StatelessWidget {
   GlobalKey<FormState> formKey = GlobalKey();
 
-  LV1_ls({Key? key}) : super(key: key);
+  Lv1Ls({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.8, 
+      height: size.height * 0.8,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/dawn.jpg'),
@@ -28,7 +28,7 @@ class LV1_ls extends StatelessWidget {
                 horizontal: 30,
               ),
               child: Center(
-                child: Buy_1(
+                child: Buy1(
                   formKey: formKey,
                 ),
               ),
@@ -47,8 +47,10 @@ class LV1_ls extends StatelessWidget {
   }
 }
 
-class LV1_ss extends StatelessWidget {
+class Lv1Ss extends StatelessWidget {
   GlobalKey<FormState> formKey = GlobalKey();
+
+  Lv1Ss({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class LV1_ss extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Buy_1(),
+        child: Buy1(),
       ),
     );
   }

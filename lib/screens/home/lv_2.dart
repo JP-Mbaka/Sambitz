@@ -9,6 +9,8 @@ class LV2 extends StatelessWidget {
   final descText =
       "Buy and Sell Crypto currencies using multple payments methods in peer-to-peer platform including bank transfer";
 
+  const LV2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

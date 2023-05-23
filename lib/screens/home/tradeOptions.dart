@@ -8,7 +8,7 @@ import '../../widgets/text.dart';
 // import 'package:sambitz/screens/trade/tradepage.dart';
 // import 'package:sambitz/widgets/text.dart';
 
-List TOptions = const [
+const List TOptions = [
   OptionSale(
     title: "Bank Transfer",
     icon: Icons.account_balance_rounded,
@@ -36,6 +36,9 @@ List TOptions = const [
 ];
 
 class OptionsDisplay extends StatelessWidget {
+  const OptionsDisplay({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,

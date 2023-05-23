@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sambitz/provider/loginProvider.dart';
+import 'package:sambitz/screens/dashboard/mainDash.dart';
 import '../../helpers/responsive.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
-  // final bool? isLogin;
-  // final Function? isLoginFunc;
-
-  // const LoginForm({super.key, this.isLogin, this.isLoginFunc});
+  const LoginForm({super.key});
 
   @override
   ConsumerState<LoginForm> createState() => _LoginForm();
@@ -16,20 +14,16 @@ class LoginForm extends ConsumerStatefulWidget {
 class _LoginForm extends ConsumerState<LoginForm> {
   var showPass = false;
   bool? login;
+
   void handleForm() {
-    // var tt = widget.isLoginFunc;
     setState(() {
-      final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(false);
-      print('Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm');
-      print(hmmmm);
+      ref.watch(isLoginProvider.notifier).isLogin(false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // print('${widget.isLoginFunc} login form variable');
     return Container(
-      // height: MediaQuery.of(context).size.height,
       color: Theme.of(context).primaryColor,
       child: Form(
         child: Column(
@@ -120,8 +114,10 @@ class _LoginForm extends ConsumerState<LoginForm> {
               margin: const EdgeInsets.symmetric(horizontal: 20),
 
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.white),
-                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Dashboard.route);
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Text(

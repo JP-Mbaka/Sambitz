@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sambitz/screens/dashboard/mainDash.dart';
 import './screens/home/homepage.dart';
 import './screens/login/login.dart';
 import './screens/trade/tradepage.dart';
@@ -65,7 +66,8 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.route: (context) => HomePage(),
         TradePage.route: (context) => TradePage(),
-        Login.route: (context) => Login(),
+        Login.route: (context) => const Login(),
+        Dashboard.route: (context) => const Dashboard(),
       },
     );
   }

@@ -4,8 +4,7 @@ import '../trade/trades.dart';
 
 import '/screens/trade/tradeForm.dart';
 import '/widgets/footer.dart';
-import '/screens/home/tradeOptions.dart';
-import '/screens/trade/rowTrade.dart';
+
 
 // ignore: must_be_immutable
 class LScreenTrade extends StatelessWidget {

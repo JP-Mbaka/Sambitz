@@ -68,7 +68,7 @@ Widget trades(BuildContext context) {
             Divider(
               color: Theme.of(context).primaryColor,
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'XuanTocDo',
               ratings: 5412,
               isVerified: true,
@@ -77,12 +77,12 @@ Widget trades(BuildContext context) {
               isOnline: true,
               minSale: 100,
               currency: 'USD',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Bank Transfer',
                 'Online Wallet',
               ],
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'XuanTocDo',
               ratings: 5412,
               isVerified: true,
@@ -91,12 +91,12 @@ Widget trades(BuildContext context) {
               isOnline: true,
               minSale: 100,
               currency: 'USD',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Bank Transfer',
                 'Online Wallet',
               ],
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'XuanTocDo',
               ratings: 5412,
               isVerified: true,
@@ -105,12 +105,12 @@ Widget trades(BuildContext context) {
               isOnline: true,
               minSale: 100,
               currency: 'USD',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Bank Transfer',
                 'Online Wallet',
               ],
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'XuanTocDo',
               ratings: 5412,
               isVerified: true,
@@ -119,12 +119,12 @@ Widget trades(BuildContext context) {
               isOnline: true,
               minSale: 100,
               currency: 'USD',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Bank Transfer',
                 'Online Wallet',
               ],
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'Joesph',
               ratings: 12,
               // isVerified: true,
@@ -138,12 +138,12 @@ Widget trades(BuildContext context) {
               minSale: 100,
               maxSale: 235,
               currency: 'NGR',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Deposit',
                 'Card Transfer',
               ],
             ),
-            RowTrade(
+            const RowTrade(
               userName: 'Michael',
               ratings: 23,
               isVerified: true,
@@ -152,7 +152,7 @@ Widget trades(BuildContext context) {
               isMaxSale: true,
               maxSale: 100,
               currency: 'Euro',
-              modeOfPayment: const [
+              modeOfPayment: [
                 'Gift Card',
                 'Amazon Card',
               ],

@@ -5,9 +5,6 @@ import 'package:sambitz/provider/loginProvider.dart';
 import '../../helpers/responsive.dart';
 
 class SignupForm extends ConsumerStatefulWidget {
-  // bool? isLogin;
-
-  // SignupForm({this.isLogin});
   @override
   ConsumerState<SignupForm> createState() => _SignupFormState();
 }
@@ -15,11 +12,8 @@ class SignupForm extends ConsumerStatefulWidget {
 class _SignupFormState extends ConsumerState<SignupForm> {
   var showPass = false, showConPass = false;
   void handleForm() {
-    // var tt = widget.isLoginFunc;
     setState(() {
-      final haaaaa = ref.watch(isLoginProvider.notifier).isLogin(true);
-      print('Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-      print(haaaaa);
+      ref.watch(isLoginProvider.notifier).isLogin(true);
     });
   }
 

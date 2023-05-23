@@ -17,6 +17,8 @@ class HomePage extends ConsumerWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   final GlobalKey<FormState> formKey = GlobalKey();
 
+  HomePage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -33,8 +35,8 @@ class HomePage extends ConsumerWidget {
         shrinkWrap: true,
         children: [
           ResponsiveWidget(
-            largescreen: LV1_ls(),
-            smallScreen: LV1_ss(),
+            largescreen: Lv1Ls(),
+            smallScreen: Lv1Ss(),
           ),
 
           LV2(),

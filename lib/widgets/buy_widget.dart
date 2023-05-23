@@ -4,7 +4,8 @@ import '../screens/trade/tradepage.dart';
 // import 'package:sambitz/screens/trade/tradepage.dart';
 // import 'package:sambitz/widgets/text.dart';
 
-class Buy_1 extends StatelessWidget {
+// ignore: must_be_immutable
+class Buy1 extends StatelessWidget {
   GlobalKey? formKey;
 
   // List<DropdownMenuItem<dynamic>>? T = [
@@ -61,7 +62,7 @@ class Buy_1 extends StatelessWidget {
   //   ),
   // ];
 
-  Buy_1({this.formKey});
+  Buy1({this.formKey});
 
   @override
   Widget build(BuildContext context) {

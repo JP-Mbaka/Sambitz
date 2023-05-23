@@ -19,7 +19,7 @@ AppBar LStopNavigation(
         ),
         child: Image.asset('assets/logo/logo.PNG'),
       ),
-      title: Text('Sambitz'),
+      title: const Text('Sambitz'),
       actions: [
         TextButton(
           onPressed: () {},
@@ -41,12 +41,11 @@ AppBar LStopNavigation(
           padding: const EdgeInsets.all(8.0),
           child: OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
-                primary: Colors.white,
-                onSurface: Theme.of(context).primaryColor,
+                foregroundColor: Colors.white,
+                // onSurface: Theme.of(context).primaryColor,
                 padding: const EdgeInsets.all(15.0)),
-            // onPrimary: Theme.of(context).primaryColor),
             onPressed: () {
-              final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(true);
+              ref.watch(isLoginProvider.notifier).isLogin(true);
               Navigator.of(context).pushNamed(
                 Login.route,
                 arguments: true,
@@ -61,11 +60,11 @@ AppBar LStopNavigation(
           padding: const EdgeInsets.all(8.0),
           child: ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Theme.of(context).primaryColor,
+              backgroundColor: Colors.white,
+              foregroundColor: Theme.of(context).primaryColor,
             ),
             onPressed: () {
-              final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(false);
+              ref.watch(isLoginProvider.notifier).isLogin(false);
               Navigator.pushNamed(
                 context,
                 Login.route,

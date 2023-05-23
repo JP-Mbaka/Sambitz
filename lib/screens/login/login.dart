@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sambitz/provider/loginProvider.dart';
 
+import '/provider/loginProvider.dart';
 import '../../helpers/responsive.dart';
 import './loginForm.dart';
 import './signup.dart';
 import '../../widgets/text.dart';
 import '../home/homepage.dart';
-
-// import 'package:sambitz/helpers/responsive.dart';
-// import 'package:sambitz/screens/home/homepage.dart';
-// import 'package:sambitz/screens/login/loginForm.dart';
-// import 'package:sambitz/screens/login/signup.dart';
-// import 'package:sambitz/widgets/text.dart';
-
 import '../Top_Nav/smallscreenTopNav.dart';
 
 class Login extends ConsumerStatefulWidget {
   static const route = '/login';
+
+  const Login({super.key});
 
   @override
   ConsumerState<Login> createState() => _LoginState();
@@ -30,11 +25,10 @@ class _LoginState extends ConsumerState<Login> {
 
   @override
   Widget build(BuildContext context) {
-    // final isLoginForm = ref.watch(isLoginProvider);
 
     final isLoginForm = ref.watch(isLoginProvider);
-    print('I am I am I am I am I am I am');
-    print(isLoginForm);
+    // print('I am I am I am I am I am I am');
+    // print(isLoginForm);
 
     return Scaffold(
       appBar: ResponsiveWidget.isSmallScreen(context)
@@ -50,16 +44,7 @@ class _LoginState extends ConsumerState<Login> {
                       const SizedBox(height: 30),
                       whiteTitle(context, 'Login'),
                       const SizedBox(height: 10),
-                      LoginForm(
-                          // isLogin: isLogin,
-                          // isLoginFunc: () {
-                          //   // switchLogin();
-                          //   final hmmmm =
-                          //       ref.read(isLoginProvider.notifier).isLogin(false);
-                          //   print('Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm');
-                          //   print(hmmmm);
-                          // },
-                          ),
+                      LoginForm(),
                     ],
                   ),
                 )
@@ -71,9 +56,7 @@ class _LoginState extends ConsumerState<Login> {
                       const SizedBox(height: 30),
                       whiteTitle(context, 'SignUp'),
                       const SizedBox(height: 10),
-                      SignupForm(
-                        // isLogin: isLogin,
-                      ),
+                      SignupForm(),
                     ],
                   ),
                 )
@@ -96,7 +79,7 @@ class _LoginState extends ConsumerState<Login> {
                           customText(
                               context,
                               'Make the best of your path, create a new lifestyle withing your own control',
-                              Color.fromARGB(255, 49, 43, 43),
+                              const Color.fromARGB(255, 49, 43, 43),
                               25,
                               FontWeight.w600),
 
@@ -113,8 +96,8 @@ class _LoginState extends ConsumerState<Login> {
                               Navigator.of(context).pushNamed(HomePage.route);
                             },
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white,
-                              onPrimary: Colors.orange,
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.orange,
                             ),
                             icon: const Padding(
                               padding: EdgeInsets.only(
@@ -156,9 +139,7 @@ class _LoginState extends ConsumerState<Login> {
                                 Positioned(
                                   top:
                                       MediaQuery.of(context).size.height * 0.42,
-                                  child: LoginForm(
-                                      // isLogin: isLogin,
-                                      ),
+                                  child: LoginForm(),
                                 ),
                               ],
                             ),
@@ -177,9 +158,7 @@ class _LoginState extends ConsumerState<Login> {
                                 Positioned(
                                   top:
                                       MediaQuery.of(context).size.height * 0.24,
-                                  child: SignupForm(
-                                    // isLogin: isLogin,
-                                  ),
+                                  child: SignupForm(),
                                 ),
                               ],
                             ),

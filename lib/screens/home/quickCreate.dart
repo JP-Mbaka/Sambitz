@@ -6,6 +6,9 @@ import '../../widgets/text.dart';
 // import 'package:sambitz/widgets/text.dart';
 
 class QuickStar extends StatelessWidget {
+  const QuickStar({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [

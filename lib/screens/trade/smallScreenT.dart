@@ -104,7 +104,7 @@ class SScreenTrade extends StatelessWidget {
                     Divider(
                       color: Theme.of(context).primaryColor,
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'XuanTocDo',
                       ratings: 5412,
                       isVerified: true,
@@ -113,12 +113,12 @@ class SScreenTrade extends StatelessWidget {
                       isOnline: true,
                       minSale: 100,
                       currency: 'USD',
-                      modeOfPayment: const [
+                      modeOfPayment: [
                         'Bank Transfer',
                         'Online Wallet',
                       ],
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'XuanTocDo',
                       ratings: 5412,
                       isVerified: true,
@@ -127,12 +127,12 @@ class SScreenTrade extends StatelessWidget {
                       isOnline: true,
                       minSale: 100,
                       currency: 'USD',
-                      modeOfPayment: const [
+                      modeOfPayment: [
                         'Bank Transfer',
                         'Online Wallet',
                       ],
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'XuanTocDo',
                       ratings: 5412,
                       isVerified: true,
@@ -141,12 +141,12 @@ class SScreenTrade extends StatelessWidget {
                       isOnline: true,
                       minSale: 100,
                       currency: 'USD',
-                      modeOfPayment: const [
+                      modeOfPayment: [
                         'Bank Transfer',
                         'Online Wallet',
                       ],
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'XuanTocDo',
                       ratings: 5412,
                       isVerified: true,
@@ -155,12 +155,12 @@ class SScreenTrade extends StatelessWidget {
                       isOnline: true,
                       minSale: 100,
                       currency: 'USD',
-                      modeOfPayment: const [
+                      modeOfPayment: [
                         'Bank Transfer',
                         'Online Wallet',
                       ],
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'Joesph',
                       ratings: 12,
                       // isVerified: true,
@@ -179,7 +179,7 @@ class SScreenTrade extends StatelessWidget {
                         'Card Transfer',
                       ],
                     ),
-                    RowTrade(
+                    const RowTrade(
                       userName: 'Michael',
                       ratings: 23,
                       isVerified: true,
@@ -188,7 +188,7 @@ class SScreenTrade extends StatelessWidget {
                       isMaxSale: true,
                       maxSale: 100,
                       currency: 'Euro',
-                      modeOfPayment: const [
+                      modeOfPayment: [
                         'Gift Card',
                         'Amazon Card',
                       ],

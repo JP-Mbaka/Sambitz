@@ -8,7 +8,7 @@ class RowContainer extends StatelessWidget {
   final String? promptText;
   final Widget? symbol;
 
-  const RowContainer({
+  const RowContainer({super.key, 
     this.title,
     this.payMeBY,
     @required this.promptText,
