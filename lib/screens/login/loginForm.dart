@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sambitz/provider/loginProvider.dart';
 import '../../helpers/responsive.dart';
 
-import '../../widgets/text.dart';
+class LoginForm extends ConsumerStatefulWidget {
+  // final bool? isLogin;
+  // final Function? isLoginFunc;
 
-class LoginForm extends StatefulWidget {
-  final bool? isLogin;
-  final Function? isLoginFunc;
+  // const LoginForm({super.key, this.isLogin, this.isLoginFunc});
 
-  LoginForm({this.isLogin, this.isLoginFunc});
   @override
-  State<LoginForm> createState() => _LoginForm();
+  ConsumerState<LoginForm> createState() => _LoginForm();
 }
 
-class _LoginForm extends State<LoginForm> {
+class _LoginForm extends ConsumerState<LoginForm> {
   var showPass = false;
   bool? login;
+  void handleForm() {
+    // var tt = widget.isLoginFunc;
+    setState(() {
+      final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(false);
+      print('Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm');
+      print(hmmmm);
+    });
+  }
 
+  @override
   Widget build(BuildContext context) {
-    print('${widget.isLoginFunc} login form variable');
+    // print('${widget.isLoginFunc} login form variable');
     return Container(
       // height: MediaQuery.of(context).size.height,
       color: Theme.of(context).primaryColor,
@@ -135,11 +145,7 @@ class _LoginForm extends State<LoginForm> {
                   ),
                 ),
                 TextButton(
-                    onPressed: () {
-                      setState(() {
-                        widget.isLoginFunc;
-                      });
-                    },
+                    onPressed: handleForm,
                     child: const Text(
                       'SignUp',
                       style: TextStyle(

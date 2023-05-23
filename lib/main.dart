@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import './screens/home/homepage.dart';
 import './screens/login/login.dart';
 import './screens/trade/tradepage.dart';
@@ -6,7 +7,11 @@ import './screens/trade/tradepage.dart';
 // import 'package:sambitz/screens/login/login.dart';
 // import 'package:sambitz/screens/trade/tradepage.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      ProviderScope(
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   @override

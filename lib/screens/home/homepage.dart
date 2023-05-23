@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../home/lv_1.dart';
 import '../home/lv_2.dart';
 import '../home/quickCreate.dart';
@@ -9,28 +10,18 @@ import '../Top_Nav/smallscreenTopNav.dart';
 import '../../widgets/buy_widget.dart';
 import '../../widgets/footer.dart';
 import '../../helpers/responsive.dart';
-// import 'package:sambitz/helpers/responsive.dart';
-// import 'package:sambitz/screens/Top_Nav/largescreenTopnavigation.dart';
-// import 'package:sambitz/screens/Top_Nav/smallscreenTopNav.dart';
-// import 'package:sambitz/screens/home/financeSys.dart';
-// import 'package:sambitz/widgets/footer.dart';
-// import 'package:sambitz/screens/home/lv_1.dart';
-// import 'package:sambitz/screens/home/lv_2.dart';
-// import 'package:sambitz/screens/home/quickCreate.dart';
-// import 'package:sambitz/screens/home/tradeOptions.dart';
-// import 'package:sambitz/widgets/buy_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   static const route = '/';
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: ResponsiveWidget.isLargeScreen(context)
-          ? LStopNavigation(context, scaffoldKey)
+          ? LStopNavigation(context, ref, scaffoldKey)
           : SMtopNavigation(context, scaffoldKey),
       // (Platform.isAndroid) ? AppBar() : topNavigation(context, scaffoldKey),
       body: ListView(

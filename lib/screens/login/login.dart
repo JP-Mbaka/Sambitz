@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sambitz/provider/loginProvider.dart';
 
 import '../../helpers/responsive.dart';
 import './loginForm.dart';
@@ -14,43 +16,32 @@ import '../home/homepage.dart';
 
 import '../Top_Nav/smallscreenTopNav.dart';
 
-class Login extends StatefulWidget {
+class Login extends ConsumerStatefulWidget {
   static const route = '/login';
 
   @override
-  State<Login> createState() => _LoginState();
+  ConsumerState<Login> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
-  late bool isLogin;
-
-  void switchLogin() {
-    print('**********************');
-    if (isLogin) {
-      isLogin = false;
-      print('************ISSIGNUP***************');
-    } else {
-      isLogin = true;
-      print('************ISLOGIN***************');
-    }
-  }
-
-  @override
-  void didChangeDependencies() {
-    isLogin = ModalRoute.of(context)!.settings.arguments as bool;
-
-    super.didChangeDependencies();
-  }
+class _LoginState extends ConsumerState<Login> {
+  var login = true;
+  var isLogin = false;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+    // final isLoginForm = ref.watch(isLoginProvider);
+
+    final isLoginForm = ref.watch(isLoginProvider);
+    print('I am I am I am I am I am I am');
+    print(isLoginForm);
+
     return Scaffold(
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? SMtopNavigation(context, scaffoldKey)
           : null,
       body: ResponsiveWidget.isSmallScreen(context)
-          ? isLogin
+          ? isLoginForm
               ? Container(
                   padding: const EdgeInsets.all(20.0),
                   color: Theme.of(context).primaryColor,
@@ -60,11 +51,15 @@ class _LoginState extends State<Login> {
                       whiteTitle(context, 'Login'),
                       const SizedBox(height: 10),
                       LoginForm(
-                        isLogin: isLogin,
-                        isLoginFunc: () {
-                          switchLogin();
-                        },
-                      ),
+                          // isLogin: isLogin,
+                          // isLoginFunc: () {
+                          //   // switchLogin();
+                          //   final hmmmm =
+                          //       ref.read(isLoginProvider.notifier).isLogin(false);
+                          //   print('Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm');
+                          //   print(hmmmm);
+                          // },
+                          ),
                     ],
                   ),
                 )
@@ -77,7 +72,7 @@ class _LoginState extends State<Login> {
                       whiteTitle(context, 'SignUp'),
                       const SizedBox(height: 10),
                       SignupForm(
-                        isLogin: isLogin,
+                        // isLogin: isLogin,
                       ),
                     ],
                   ),
@@ -146,7 +141,7 @@ class _LoginState extends State<Login> {
                 ),
                 Expanded(
                     flex: 2,
-                    child: isLogin
+                    child: isLoginForm
                         ? Container(
                             // height: MediaQuery.of(context).size.height,
                             color: Theme.of(context).primaryColor,
@@ -162,8 +157,8 @@ class _LoginState extends State<Login> {
                                   top:
                                       MediaQuery.of(context).size.height * 0.42,
                                   child: LoginForm(
-                                    isLogin: isLogin,
-                                  ),
+                                      // isLogin: isLogin,
+                                      ),
                                 ),
                               ],
                             ),
@@ -183,7 +178,7 @@ class _LoginState extends State<Login> {
                                   top:
                                       MediaQuery.of(context).size.height * 0.24,
                                   child: SignupForm(
-                                    isLogin: isLogin,
+                                    // isLogin: isLogin,
                                   ),
                                 ),
                               ],

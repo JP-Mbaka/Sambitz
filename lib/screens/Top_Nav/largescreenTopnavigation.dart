@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sambitz/provider/loginProvider.dart';
 import '../login/login.dart';
 // import 'package:sambitz/screens/login/login.dart';
 
-AppBar LStopNavigation(BuildContext context, GlobalKey<ScaffoldState> key) =>
+AppBar LStopNavigation(
+  BuildContext context,
+  WidgetRef ref,
+  GlobalKey<ScaffoldState> key,
+) =>
     AppBar(
       elevation: 0,
       leading: Padding(
@@ -40,6 +46,7 @@ AppBar LStopNavigation(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 padding: const EdgeInsets.all(15.0)),
             // onPrimary: Theme.of(context).primaryColor),
             onPressed: () {
+              final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(true);
               Navigator.of(context).pushNamed(
                 Login.route,
                 arguments: true,
@@ -58,6 +65,7 @@ AppBar LStopNavigation(BuildContext context, GlobalKey<ScaffoldState> key) =>
               onPrimary: Theme.of(context).primaryColor,
             ),
             onPressed: () {
+              final hmmmm = ref.watch(isLoginProvider.notifier).isLogin(false);
               Navigator.pushNamed(
                 context,
                 Login.route,
