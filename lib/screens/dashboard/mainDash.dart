@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sambitz/widgets/text.dart';
+import 'package:sambitz/screens/dashboard/dashSurf.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -7,7 +7,7 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // appBar: AppBar(
       //   // leading: Text('data'),
       //   leading: SizedBox(
@@ -44,40 +44,7 @@ class Dashboard extends StatelessWidget {
       //   //   ),
       //   // ],
       // ),
-      body: Row(
-        children: [
-          Expanded(
-            child: Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    right: BorderSide(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 25),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/logo/logo.PNG',
-                          width: 25,
-                          height: 25,
-                        ),
-                        const Text('SamBitz'),
-                      ],
-                    )
-                  ],
-                )),
-          ),
-          Expanded(
-              flex: 3,
-              child: Center(
-                child: Text('Body'),
-              ))
-        ],
-      ),
+      body: DashSurf(),
     );
   }
 }
