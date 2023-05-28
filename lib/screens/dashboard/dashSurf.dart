@@ -95,7 +95,7 @@ class _DashSurfState extends State<DashSurf> {
                           InkWell(
                             child: smallListDash(
                               context,
-                              'Schedule alert',
+                              'Trading Partners',
                               Colors.blue,
                               showMenuDash,
                             ),
