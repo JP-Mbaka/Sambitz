@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:sambitz/screens/dashboard/dashboard.dart';
 import 'package:sambitz/widgets/dashList.dart';
 import 'package:sambitz/widgets/text.dart';
@@ -17,6 +18,14 @@ class _DashSurfState extends State<DashSurf> {
   var tradesDroppedDown = false;
   var contractsDroppedDown = false;
   var statusDroppedDown = false;
+
+  var pageNo = 0;
+
+  void chngPage(int val) {
+    setState(() {
+      pageNo = val;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +93,7 @@ class _DashSurfState extends State<DashSurf> {
                         children: [
                           const SizedBox(height: 5),
                           InkWell(
+                            onTap: () => chngPage(0),
                             child: smallListDash(
                               context,
                               'Transactions',
@@ -93,6 +103,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(1),
                             child: smallListDash(
                               context,
                               'Trading Partners',
@@ -102,6 +113,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(2),
                             child: smallListDash(
                               context,
                               'Cash back',
@@ -142,6 +154,7 @@ class _DashSurfState extends State<DashSurf> {
                         children: [
                           const SizedBox(height: 5),
                           InkWell(
+                            onTap: () => chngPage(3),
                             child: smallListDash(
                               context,
                               'Buy',
@@ -151,6 +164,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(4),
                             child: smallListDash(
                               context,
                               'Sell',
@@ -192,6 +206,7 @@ class _DashSurfState extends State<DashSurf> {
                         children: [
                           const SizedBox(height: 5),
                           InkWell(
+                            onTap: () => chngPage(5),
                             child: smallListDash(
                               context,
                               'Approved',
@@ -201,6 +216,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(6),
                             child: smallListDash(
                               context,
                               'Pending',
@@ -210,6 +226,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(7),
                             child: smallListDash(
                               context,
                               'Suspended',
@@ -219,6 +236,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(8),
                             child: smallListDash(
                               context,
                               'Cancled',
@@ -236,7 +254,7 @@ class _DashSurfState extends State<DashSurf> {
                           ? const EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 12.0)
                           : null,
-                      color: statusDroppedDown ? Colors.orange : null,
+                      // color: statusDroppedDown ? Colors.orange : null,
                       child: listDash(
                         context,
                         Icons.bungalow,
@@ -261,6 +279,7 @@ class _DashSurfState extends State<DashSurf> {
                         children: [
                           const SizedBox(height: 5),
                           InkWell(
+                            onTap: () => chngPage(9),
                             child: smallListDash(
                               context,
                               'Active',
@@ -270,6 +289,7 @@ class _DashSurfState extends State<DashSurf> {
                           ),
                           const SizedBox(height: 10),
                           InkWell(
+                            onTap: () => chngPage(10),
                             child: smallListDash(
                               context,
                               'Offsale',
@@ -280,6 +300,22 @@ class _DashSurfState extends State<DashSurf> {
                           const SizedBox(height: 10),
                         ],
                       ),
+                    Divider(color: Theme.of(context).primaryColor),
+                    Container(
+                      width: double.infinity,
+                      padding: statusDroppedDown
+                          ? const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 12.0)
+                          : null,
+                      color: statusDroppedDown ? Colors.orange : null,
+                      child: listDash(
+                        context,
+                        Icons.wallet,
+                        'Wallet',
+                        () => chngPage(11),
+                        showMenuDash = false,
+                      ),
+                    ),
                     Divider(color: Theme.of(context).primaryColor),
                     const SizedBox(
                       height: 250,
@@ -375,8 +411,10 @@ class _DashSurfState extends State<DashSurf> {
             ),
             Expanded(
               flex: showMenuDash ? 12 : 3,
-              child: DashBoardView(),
-            )
+              child: DashBoardView(
+                pageNo: pageNo,
+              ),
+            ),
           ],
         ),
         Positioned(

@@ -1,12 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:sambitz/screens/dashboard/dailyTransaction.dart';
-import 'package:sambitz/screens/dashboard/heading.dart';
-import 'package:sambitz/screens/dashboard/pieChart.dart';
-import 'package:sambitz/screens/dashboard/tableAllTransactions.dart';
-import 'package:sambitz/screens/dashboard/verifiedCard.dart';
+import 'package:sambitz/screens/dashboard/Wallet/main.dart';
 
-class DashBoardView extends StatelessWidget {
-  const DashBoardView({super.key});
+import 'Contracts/approved.dart';
+import 'Contracts/cancled.dart';
+import 'Contracts/pending.dart';
+import 'Contracts/suspended.dart';
+import 'Status/active.dart';
+import 'Status/offsale.dart';
+import 'heading.dart';
+import 'overview/cashback.dart';
+import 'overview/trading_partners.dart';
+import 'overview/transactions/transactions.dart';
+import 'trades/buy.dart';
+import 'trades/sell.dart';
+import 'verifiedCard.dart';
+
+class DashBoardView extends StatefulWidget {
+  DashBoardView({
+    super.key,
+    required this.pageNo,
+  });
+  int pageNo;
+
+  @override
+  State<DashBoardView> createState() => _DashBoardViewState();
+}
+
+class _DashBoardViewState extends State<DashBoardView> {
+  var showPage = [
+    const Transactions(),
+    TradingPartners(),
+    CashBack(),
+    DropdownBuy(),
+    DropdownSells(),
+    Approved(),
+    Pending(),
+    Suspended(),
+    Canceled(),
+    Active(),
+    OffSale(),
+    Wallet()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,41 +54,9 @@ class DashBoardView extends StatelessWidget {
           // height: 550,
           width: double.infinity,
           padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Container(
-                      height: 300,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange),
-                      ),
-                      child: DailyTransact(),
-                    ),
-                  ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: Container(
-                      height: 300,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange),
-                      ),
-                      child: PieChartBalance(),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Container(
-                height: 300,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.orange),
-                ),
-                child: AllTransactionsTable(),
-              )
-            ],
+          child: IndexedStack(
+            index: widget.pageNo,
+            children: showPage,
           ),
         )
       ],

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/text.dart';
+import '../../../../widgets/text.dart';
 
-class AllTransactionsTable extends StatelessWidget {
-  const AllTransactionsTable({super.key});
-
+class PieChartBalance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
@@ -19,17 +17,10 @@ class AllTransactionsTable extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          orangeTitle(context, 'All transactions'),
+          orangeTitle(context, 'Available balance'),
         ],
       ),
-      child: ListView(
-        children: const [
-          SizedBox(height: 40),
-          Center(
-            child: Text('No Table'),
-          ),
-        ],
-      ),
+      child: const Center(child: Text('No chart')),
     );
   }
 }
